@@ -1,19 +1,29 @@
-import { Button } from "./components/ui/button"
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './page/home/HomePage';
+import AuthCallbackPage from './page/auth-callback/AuthCallbackPage';
+import { AuthenticateWithRedirectCallback } from '@clerk/clerk-react';
+// import { axiosInstance } from './lib/axios';
 
+export default function App() {
+  // const getSomeData = async () => {
+  //   const res = await axiosInstance.get('/users', {
+  //     headers: {
+  //       'Authorization': `Bearer ${token}`,
+  //     },
+  //   })
+  //   console.log(res);
 
-function App() {
-
-
+  // };
   return (
     <>
-   <h1 className="text-3xl font-bold underline text-red-500">
-    Hello world!
-  </h1>
-   <div className="flex flex-wrap items-center gap-2 md:flex-row">
-      <Button variant={"outline"}>Button</Button>
-    </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/sso-callback"
+          element={<AuthenticateWithRedirectCallback signUpForceRedirectUrl={'/auth-callback'} />}
+        />
+        <Route path="/auth-callback" element={<AuthCallbackPage />} />
+      </Routes>
     </>
-  )
+  );
 }
-
-export default App
