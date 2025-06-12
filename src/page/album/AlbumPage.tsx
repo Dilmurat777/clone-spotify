@@ -8,7 +8,7 @@ import { Clock, Play } from 'lucide-react';
 const AlbumPage = () => {
   const { albumId } = useParams();
   const { fetchAlbumById, currentAlbum, isLoading } = useMusicStore();
-  console.log('currentAlbum', currentAlbum);
+
 
   useEffect(() => {
     if (albumId) {
@@ -33,7 +33,7 @@ const AlbumPage = () => {
         <div className="relative min-h-full">
           {/* bg gradient */}
           <div
-            className="absolute inset-0 bg-gradient-to-b from-[#5038a0]/80 via-zinc-900/80 to-zinc-900"
+            className="absolute inset-0 bg-gradient-to-b from-[#5038a0]/80 via-zinc-900/80 to-zinc-900  rounded-md"
             aria-hidden="true">
             {/* content */}
             <div className="relative z-10">

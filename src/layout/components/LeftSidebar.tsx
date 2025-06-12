@@ -15,8 +15,6 @@ const LeftSidebar = () => {
     fetchAlbums();
   }, [fetchAlbums]);
 
-console.log('albums', albums);
-
 
   return (
     <div className="flex flex-col h-full gap-2">
