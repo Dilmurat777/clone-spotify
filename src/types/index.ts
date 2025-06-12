@@ -1,20 +1,17 @@
-
-
-
 export interface Song {
-	  id: string;
+  _id?: string;
   title: string;
   artist: string;
   album: string;
   duration: number; // in seconds
   imageUrl: string;
   audioUrl: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface Album {
-  id: string;
+  _id?: string;
   title: string;
   artist: string;
   imageUrl: string;
