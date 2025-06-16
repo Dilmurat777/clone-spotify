@@ -5,12 +5,12 @@ import { HeadphonesIcon, Music, Users } from 'lucide-react';
 import { useEffect } from 'react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { AvatarImage } from '@radix-ui/react-avatar';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 const FriendsActivity = () => {
   const { fetchUsers, users } = useChatStore();
   const { user } = useUser();
-  console.log(users);
-
+  const {isAdmin} = useAuthStore()
   const isPlaying = true;
 
   useEffect(() => {
@@ -27,7 +27,8 @@ const FriendsActivity = () => {
       </div>
       {!user && <LoginPrompt />}
 
-      <ScrollArea className="flex-1">
+     {
+      !isAdmin ? ( <ScrollArea className="flex-1">
         <div className="py-4 space-y-4">
           {users.map((user) => (
             <div
@@ -63,7 +64,8 @@ const FriendsActivity = () => {
             </div>
           ))}
         </div>
-      </ScrollArea>
+      </ScrollArea>) : ('')
+      }
     </div>
   );
 };
