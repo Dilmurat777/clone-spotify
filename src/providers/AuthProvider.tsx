@@ -18,10 +18,8 @@ useEffect(() => {
   const initAuth = async () => {
     try {
       const token = await getToken();
-      console.log('Token received:', token ? 'Yes' : 'No');
       updateApiToken(token);
       if (token) {
-        console.log('Checking admin status...');
         await checkAdminStatus();
       }
     } catch (error: any) {
