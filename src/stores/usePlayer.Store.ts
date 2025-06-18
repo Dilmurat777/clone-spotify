@@ -68,20 +68,20 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
     }
   },
   previousSong: () => {
-	const { queue, currentIndex } = get();
-	const prevIndex = currentIndex - 1;
+    const { queue, currentIndex } = get();
+    const prevIndex = currentIndex - 1;
 
-	if (prevIndex >= 0) {
-		const prevSong = queue[prevIndex];
-		set({
-			currentSong: prevSong,
-			currentIndex: prevIndex,
-			isPlaying: true,
-		});
-	} else {
-		set({
-			isPlaying: false,
-		});
-	}
+    if (prevIndex >= 0) {
+      const prevSong = queue[prevIndex];
+      set({
+        currentSong: prevSong,
+        currentIndex: prevIndex,
+        isPlaying: true,
+      });
+    } else {
+      set({
+        isPlaying: false,
+      });
+    }
   },
 }));
